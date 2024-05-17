@@ -1,0 +1,267 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(230, 17%, 14%);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    text-align: start;
+    flex-direction: column;
+}
+
+.header-text h1{
+    margin-bottom: 0;
+    font-size: medium;
+}
+
+.header-text p{
+    margin-top: 0;
+    font-size: small;
+    color: grey;
+}
+
+
+.toggle {
+    display: flex;
+    align-items: center;
+}
+
+.toggle span {
+    margin-right: 1rem;
+}
+
+#theme-toggle {
+    display: none;
+}
+
+.toggle-label {
+    width: 50px;
+    height: 24px;
+    background-color: hsl(230, 22%, 74%);
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-label::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: hsl(0, 0%, 100%);
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: left 0.3s;
+}
+
+#theme-toggle:checked+.toggle-label {
+    background: linear-gradient(hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+}
+
+#theme-toggle:checked+.toggle-label::after {
+    left: 28px;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: hsl(230, 17%, 14%);
+    color: hsl(0, 0%, 100%);
+}
+
+body.dark-mode .stat-card {
+    background-color: hsl(228, 28%, 20%);
+}
+
+body.dark-mode .overview-card {
+    background-color: hsl(228, 28%, 20%);
+}
+
+body.dark-mode .toggle-label {
+    background: hsl(230, 22%, 74%);
+}
+
+body.dark-mode #theme-toggle:checked+.toggle-label {
+    background: linear-gradient(hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+}
+
+/* Stat Cards */
+.stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* margin-bottom: 2rem; */
+}
+
+.stat-card {
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    background-color: hsl(227, 47%, 96%);
+    transition: background-color 0.3s;
+    z-index: 111;
+}
+
+.facebook{
+    border-top: hsl(208, 92%, 53%) solid 4px;
+}
+.twitter{
+    border-top: solid 4px hsl(203, 89%, 53%);
+}
+.instagram{
+    border-top: solid 4px;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+}
+.youtube{
+    border-top: solid 4px hsl(348, 97%, 39%)
+    
+}
+
+.profile {
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    text-align: center;
+}
+
+.profile h2 {
+    font-size: 1rem;
+    color: hsl(228, 34%, 66%);
+}
+
+.stat-card .count {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+
+.stat-card .followers,
+.stat-card .today {
+    font-size: 0.875rem;
+    color: hsl(228, 34%, 66%);
+}
+
+.stat-card .percent {
+    font-size: 0.875rem;
+    color: hsl(163, 72%, 41%);
+}
+
+.stat-card .percent.negative {
+    color: hsl(356, 69%, 56%);
+}
+
+/* Overview Cards */
+.overview {
+    margin-bottom: 2rem;
+}
+
+.overview-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.overview-value{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.overview-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.overview-card {
+    padding: 0 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    background-color: hsl(227, 47%, 96%);
+    transition: background-color 0.3s;
+}
+
+.overview-card .count {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.overview-card .percent {
+    font-size: 0.875rem;
+    color: hsl(163, 72%, 41%);
+}
+
+.overview-card .percent.negative {
+    color: hsl(356, 69%, 56%);
+}
+
+@media (min-width: 768px) {
+    .header {
+        flex-direction: row;
+    }
+
+        .header-text h1 {
+            font-size: x-large;
+        }
+    
+        .header-text p {
+            font-size: large;
+        }
+
+    .stats {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .stat-card {
+        width: 30%;
+    }
+
+    .overview-card {
+        width: 30%;
+    }
+
+    .overview-cards {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .stat-card, .overview-card{
+        width: 18%;
+    }
+
+        .overview-cards {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+}
+
+/* Attribution */
+.attribution {
+    text-align: center;
+    font-size: 0.875rem;
+    margin-top: 2rem;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
